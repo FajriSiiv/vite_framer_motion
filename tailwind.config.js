@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Clash Grotesk", "sans-serif"],
+        sans: ["Poppins", "sans-serif"],
       },
     },
   },
