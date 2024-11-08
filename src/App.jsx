@@ -18,19 +18,76 @@ import { RiDiscountPercentLine, RiNavigationFill } from "react-icons/ri";
 import { BiLogoShopify, BiSolidCustomize } from "react-icons/bi";
 import { SiShopify } from "react-icons/si";
 import { IoIosCard } from "react-icons/io";
+import Button from "./components/Button";
+import TitleSection from "./components/TitleSection";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="relative h-full bg-black overflow-hidden">
+    <div className="relative h-full bg-black overflow-clip">
       <div className="fixed h-[200px] w-screen bg-gradient-to-b to-rose-500/0 from-emerald-500/20 opacity-75" />
+      <Navbar />
       <BlurBlock />
       <HeroMain />
       <ImgHero />
       <MeetSection />
+      {/* <FeaturesSection /> */}
       <div className="h-screen"></div>
     </div>
   );
 };
+
+// const FeaturesSection = () => {
+//   const ref = useRef();
+//   const { scrollYProgress } = useScroll({
+//     offset: ["start start", "start end"],
+//     target: ref,
+//   });
+
+//   const scrollDiv1 = useTransform(
+//     scrollYProgress,
+//     [0, 1],
+//     ["relative", "sticky"]
+//   );
+//   const scrollDiv2 = useTransform(scrollYProgress, [0.5, 1], [-100, -20]);
+
+//   return (
+//     <SectionDiv className="mt-20">
+//       <div className="py-14 ">
+//         <TitleSection
+//           titleHeading="Features"
+//           titleDesc="All the essential components of Shopify, now in Framer"
+//         />
+//         <div
+//           className="flex flex-col gap-y-10 mt-20 relative h-[300vh]"
+//           ref={ref}
+//         >
+//           <motion.div
+//             style={{
+//               // y: scrollDiv1,
+//               position: scrollDiv1,
+//             }}
+//             className=" w-full bg-white rounded-md  top-10 h-fit p-10"
+//           >
+//             <h2 className="text-4xl font-semibold underline">Easy Setup</h2>
+//             <p className="text-base py-5 max-w-[600px]">
+//               Set up everything effortlessly in just five minutes – we take care
+//               of all the heavy lifting, so you can sit back and watch your
+//               project come to life.
+//             </p>
+//             <img
+//               src="https://images.unsplash.com/1/macbook-air-iphone-moleskin.jpg?q=80&w=1488&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+//               alt="fast easy"
+//               className="max-h-[480px] object-cover w-full object-top rounded-md"
+//             />
+//           </motion.div>
+
+//           {/* <div className="h-screen w-full bg-emerald-500 z-10 sticky top-20"></div> */}
+//         </div>
+//       </div>
+//     </SectionDiv>
+//   );
+// };
 
 const MeetSection = () => {
   const ref = useRef(null);
@@ -61,13 +118,10 @@ const MeetSection = () => {
   return (
     <SectionDiv className="bg-green-900/5 mt-20">
       <div className="py-14 text-white" ref={ref}>
-        <h2 className="uppercase text-[#34fb49b2] tracking-[0.4em] font-bold">
-          meet shopiframe
-        </h2>
-
-        <p className="text-4xl leading-tight mt-6 font-semibold">
-          Framer Flexiility, Shopify Strength
-        </p>
+        <TitleSection
+          titleHeading="meet shopiframe"
+          titleDesc=" Framer Flexiility, Shopify Strength"
+        />
 
         <motion.div
           style={{ y: ySmooth }}
@@ -87,7 +141,7 @@ const MeetSection = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 grid-rows-3 gap-12 mt-16">
+            <div className="grid grid-cols-3 grid-rows-3 gap-12 mt-16 lg:grid-cols-2">
               <CardFramer
                 icon={<PiArrowBendUpRightBold size={18} />}
                 text="prototyping capabilities"
@@ -146,7 +200,7 @@ const MeetSection = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 grid-rows-3 gap-12 mt-16">
+            <div className="grid grid-cols-3 grid-rows-3 gap-12 mt-16 lg:grid-cols-2">
               <CardFramer
                 icon={<PiShoppingBagOpenFill size={18} />}
                 textHighlight="inventory management."
@@ -186,6 +240,14 @@ const MeetSection = () => {
             </div>
           </div>
         </motion.div>
+
+        <div className="w-full rounded-lg p-3 flex justify-between items-center mt-20 bg-slate-950 border border-slate-800">
+          <div className="flex justify-center items-center gap-x-2">
+            <CgFramer size={50} />
+            <p>Start building your website in minutes now with Framer.</p>
+          </div>
+          <Button text="Try Framer" />
+        </div>
       </div>
     </SectionDiv>
   );
