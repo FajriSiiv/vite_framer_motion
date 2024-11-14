@@ -1,21 +1,22 @@
 import React from "react";
 
-import Navbar from "./components/Navbar";
-import { BlurBlock } from "./components/Home/BlurBlock";
-import { HeroMain } from "./components/Home/Hero";
-import { ImgHero } from "./components/Home/ImgHero";
-import { MeetSection } from "./components/Home/Meet";
+import Home from "./pages/Home";
+import Layout from "./components/Div/Layout";
+import { AnimatePresence, motion } from "framer-motion";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Features from "./pages/Features";
 
 const App = () => {
+  const location = useLocation();
   return (
-    <div className="relative h-full bg-black overflow-clip">
-      <div className="fixed h-[200px] w-screen bg-gradient-to-b to-rose-500/0 from-emerald-500/20 opacity-75" />
-      <Navbar />
-      <BlurBlock />
-      <HeroMain />
-      <ImgHero />
-      <MeetSection />
-    </div>
+    <Layout>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/features" element={<Features />} />
+        </Routes>
+      </AnimatePresence>
+    </Layout>
   );
 };
 

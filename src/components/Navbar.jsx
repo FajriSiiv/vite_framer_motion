@@ -11,10 +11,11 @@ const Navbar = () => {
           <span className="text-white text-semibold">ShopiFrame</span>
         </p>
         <div className="flex items-center justify-center gap-x-3 text-sm">
-          <span>Features</span>
+          <a href="/">Home</a>
+
+          <a href="/features">Features</a>
           <span>How it works</span>
           <span>Pricing</span>
-          <span>FAQ</span>
 
           <div className="h-[20px] w-[2px] bg-white/40" />
           <span>Documentation</span>
